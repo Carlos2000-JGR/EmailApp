@@ -71,6 +71,21 @@
 
 
                         </SwipeView>  -->
+
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItem Text="Delete" BackgroundColor="Red"
+                                           
+                                           CommandParameter="{Binding}">
+                                    
+                                    
+                                </SwipeItem>
+                                
+                                
+                            </SwipeView.RightItems>
+                            
+                            
+                        </SwipeView>
                             <Label
                             Text="{Binding Date.DayOfWeek}"
                            
