@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="emailAppXamarin.Views.EmailsPage"
+             xmlns:viewModels="clr-namespace:emailAppXamarin.ViewModels" 
+             x:Name="EmailPage"
+             Title="Primary">
+
+    
+    <ContentPage.BindingContext>
+        <viewModels:EmailsViewModel></viewModels:EmailsViewModel>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="addButton" Text="Create Email" Order="Primary" Command="{Binding NavigateCommand}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+  
+
+    <ListView  ItemsSource="{Binding Emails}" HasUnevenRows="True" SeparatorVisibility="None" SelectedItem="{Binding SelectedEmailCommand}">
+        <ListView.ItemTemplate>
+            
+            <DataTemplate>
+
+                <ViewCell>
+
+                    <StackLayout >
+
+                      <!--  <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                                
+                                HeightRequest="60"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Aspect="AspectFill"
+                                WidthRequest="66"
+                                Grid.RowSpan="2"
+                                Source="{Binding Image}"/>
+                        <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   VerticalOptions="End"/>
+                        <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   VerticalOptions="Start"
+                                   Text="{Binding Detail}"/>
+                        </Grid> -->
+
+                        <!--  <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItem Text="Delete"
+                                           
+                                           BackgroundColor="Red"
+                                     Command="{Binding Source={x:Reference AddEmailPage}, Path=BindingContext.DeleteCommand}"
+                                           CommandParameter="{Binding}" 
+
+
+                                />
+
+                            </SwipeView.RightItems>
+
+
+
+                        </SwipeView>  -->
+                            <Label
+                            Text="{Binding Date.DayOfWeek}"
+                           
+                            HorizontalOptions="End"
+                               TextColor="CornflowerBlue"
+                            VerticalOptions="Center"
+                            
+                            >
+                            
+                        </Label>
+
+                        <Label
+                            
+                            Text="{Binding To}"
+                         TextColor="Black"
+                            FontAttributes="Bold"
+                            
+                            ></Label>
+
+                        <Label
+                            
+                            Text="{Binding Description}"
+                          TextColor="Black"
+                            FontAttributes="Bold"
+                            
+                            ></Label>
+
+                        <Label
+                            
+                            Text="{Binding Compose}"
+                           TextColor="Gray"
+                           
+                          
+                            
+                            ></Label>
+
+                        
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
